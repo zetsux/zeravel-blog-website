@@ -1,0 +1,10 @@
+- To create a project :
+	composer create-project <user_name>/<repository_name> <folder_name>
+	ex : composer create-project laravel/laravel learn
+
+- To create a project if already global (yes) :
+	laravel new <folder_name>
+	ex : laravel new learn
+
+- To serve / run server :
+	php artisan serve (in the app folder)
