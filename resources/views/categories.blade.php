@@ -9,7 +9,7 @@
     @foreach ($categories as $c)
         <ul>
             <li>
-                <h2><a href="/categories/{{ $c->slug }}">{{ $c->name }}</a></h2>
+                <h2><a href="/categories/{{ $c->slug }}" class="text-decoration-none">{{ $c->name }}</a></h2>
             </li>
         </ul>
     @endforeach
