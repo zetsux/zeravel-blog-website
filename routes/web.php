@@ -35,4 +35,4 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/blog/{slug}', [PostController::class, 'showOne']);
+Route::get('/blog/{post:slug}', [PostController::class, 'showOne']);
