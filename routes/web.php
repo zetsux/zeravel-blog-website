@@ -2,6 +2,7 @@
 
 // Right Click -> Import All Classes (from PHP Namespace Resolver extension)
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Models\Category;
@@ -41,3 +42,7 @@ Route::get('/blog/{post:slug}', [PostController::class, 'showOne']);
 Route::get('categories', [CategoryController::class, 'showCategories']);
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'showPosts']);
+
+Route::get('/users', [UserController::class, 'showUsers']);
+
+Route::get('/author/{author:username}', [UserController::class, 'showPosts']);

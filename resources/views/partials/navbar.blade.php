@@ -16,6 +16,9 @@
             <a class="nav-link {{ (($title == "Post Categories") ? 'active' : '') }}" href="/categories">Categories</a>
           </li>
           <li class="nav-item ms-2">
+            <a class="nav-link {{ (($title == "Users") ? 'active' : '') }}" href="/users">Users</a>
+          </li>
+          <li class="nav-item ms-2">
             <a class="nav-link {{ (($title == "About") ? 'active' : '') }}" href="/about">About</a>
           </li>
         </ul>
