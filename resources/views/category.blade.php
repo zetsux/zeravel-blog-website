@@ -1,10 +1,9 @@
-{{-- @dd($posts) --}}
 @extends('layouts.main')
 
 @section('container')
-    <h1>Blogs</h1><hr>
+    <h1><b>{{ $category }}</b> Posts</h1><hr>
 
-    @if ($posts->isEmpty()) <h2>There are no post yet..
+    @if ($posts->isEmpty()) <h2>There are no posts with this category yet..
     @endif
 
     @foreach ($posts as $p)
