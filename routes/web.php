@@ -45,4 +45,4 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'showPosts
 
 Route::get('/users', [UserController::class, 'showUsers']);
 
-Route::get('/author/{author:username}', [UserController::class, 'showPosts']);
+Route::get('/users/{author:username}', [UserController::class, 'showPosts']);

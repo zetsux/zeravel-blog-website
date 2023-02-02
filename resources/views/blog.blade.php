@@ -31,7 +31,7 @@
                         <h3 class="card-title"><a href="/blog/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
                         <small class="text-muted">
                             <h6>
-                                By : <a href="/author/{{ $posts[0]->user->username }}" class="text-decoration-none">{{ $posts[0]->user->name }}</a> ({{ $posts[0]->created_at->diffForHumans() }})
+                                By : <a href="/users/{{ $posts[0]->user->username }}" class="text-decoration-none">{{ $posts[0]->user->name }}</a> ({{ $posts[0]->created_at->diffForHumans() }})
                             </h6>
                         </small>
                         <p class="card-text">{{ $posts[0]->excerpt }}</p>
@@ -56,7 +56,7 @@
                             <h3 class="card-title">
                                 <a href="/blog/{{ $p->slug }}" class="text-decoration-none">{{ $p->title }}</a>
                             </h3>
-                            <h6>By : <a href="/author/{{ $p->user->username }}" class="text-decoration-none">{{ $p->user->name }}</a> ({{ $p->created_at->diffForHumans() }})</h6>
+                            <h6>By : <a href="/users/{{ $p->user->username }}" class="text-decoration-none">{{ $p->user->name }}</a> ({{ $p->created_at->diffForHumans() }})</h6>
                             <p class="card-text">{{ $p->excerpt }}</p>
 
                             <a href="/blog/{{ $p->slug }}" class="text-decoration-none btn btn-info mb-3">Read more..</a>
