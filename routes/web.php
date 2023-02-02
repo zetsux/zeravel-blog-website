@@ -41,8 +41,4 @@ Route::get('/blog/{post:slug}', [PostController::class, 'showOne']);
 
 Route::get('/categories', [CategoryController::class, 'showCategories']);
 
-Route::get('/categories/{category:slug}', [CategoryController::class, 'showPosts']);
-
 Route::get('/users', [UserController::class, 'showUsers']);
-
-Route::get('/users/{author:username}', [UserController::class, 'showPosts']);
