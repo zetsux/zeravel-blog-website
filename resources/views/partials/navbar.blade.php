@@ -22,6 +22,14 @@
             <a class="nav-link {{ (($title == "About") ? 'active' : '') }}" href="/about">About</a>
           </li>
         </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item ms-2">
+            <a class="nav-link {{ (($title == "Login") ? 'active' : '') }}" href="/login">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 </nav>
