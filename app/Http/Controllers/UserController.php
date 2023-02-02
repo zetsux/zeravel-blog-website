@@ -20,7 +20,7 @@ class UserController extends Controller
         return view('attribute', [
             'title' => 'Users',
             'attributes' => User::latest()->get(),
-            'type' => 'users'
+            'type' => 'user'
         ]);
     }
 }

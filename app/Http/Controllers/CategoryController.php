@@ -12,7 +12,7 @@ class CategoryController extends Controller
             'title' => $category->name,
             'posts' => $category->posts,
             'category' => $category->name,
-            'type' => "Category"
+            'type' => "category"
         ]);
     }
 
@@ -20,7 +20,7 @@ class CategoryController extends Controller
         return view('attribute', [
             'title' => 'Categories',
             'attributes' => Category::latest()->get(),
-            'type' => 'categories'
+            'type' => "category"
         ]);
     }
 }
