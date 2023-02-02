@@ -47,4 +47,8 @@
         </div>
     </div>
 
+    <div class="d-flex justify-content-center">
+        {{ $attributes->links() }}
+    </div>
+
 @endsection

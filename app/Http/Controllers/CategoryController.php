@@ -10,7 +10,7 @@ class CategoryController extends Controller
     public function showCategories() {
         return view('attribute', [
             'title' => 'Categories',
-            'attributes' => Category::latest()->get(),
+            'attributes' => Category::latest()->paginate(6)->withQueryString(),
             'type' => "category"
         ]);
     }

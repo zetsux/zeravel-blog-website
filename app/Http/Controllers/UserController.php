@@ -10,7 +10,7 @@ class UserController extends Controller
     public function showUsers() {
         return view('attribute', [
             'title' => 'Users',
-            'attributes' => User::latest()->get(),
+            'attributes' => User::latest()->paginate(6)->withQueryString(),
             'type' => 'user'
         ]);
     }
