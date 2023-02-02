@@ -9,9 +9,10 @@ class PostController extends Controller
 {
     public function showAll() {
         return view('blog', [
-            "title" => "Blog",
+            "title" => "All",
             // "posts" => Post::all()
-            "posts" => Post::latest()->get()
+            "posts" => Post::latest()->get(),
+            'type' => "All"
         ]);
     }
 

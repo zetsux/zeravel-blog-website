@@ -8,10 +8,11 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function showPosts(User $author) {
-        return view('author', [
-            'title' => $author->name,
+        return view('blog', [
+            'title' => $author->name . "'s",
             'posts' => $author->posts,
-            'author' => $author->name
+            'author' => $author->name,
+            'type' => "User"
         ]);
     }
 

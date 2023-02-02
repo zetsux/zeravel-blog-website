@@ -2,9 +2,22 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Blogs</h1><hr>
+    <h1><b>{{ $title }}</b> Posts</h1><hr>
 
-    @if ($posts->isEmpty()) <h2>There are no post yet..
+    @if ($posts->isEmpty())
+        <h2>
+            @switch($type)
+                @case("Category")
+                    There are no post yet of this category..
+                    @break
+                @case("User")
+                    There are no post yet from this user..
+                    @break
+                @default
+                    There are no post yet..
+                    @break
+            @endswitch
+        </h2>
     @endif
 
     @foreach ($posts as $p)
