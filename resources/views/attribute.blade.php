@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>{{ $title }}</h1><hr>
+    <h1 class="ms-3">{{ $title }}</h1><hr>
 
     @if ($attributes->isEmpty()) <h2>There are no registered {{ $type }} yet..
     @endif
