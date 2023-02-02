@@ -34,13 +34,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::create([
-            'name' => 'Private Life',
-            'slug' => 'private-life'
+            'name' => 'PC Gaming',
+            'slug' => 'pc-gaming'
         ]);
 
         Category::create([
-            'name' => 'Celebrity Gossip',
-            'slug' => 'celebrity-gossip'
+            'name' => 'Travelling',
+            'slug' => 'travelling'
         ]);
 
         Post::factory(20)->create();
