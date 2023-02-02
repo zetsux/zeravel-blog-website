@@ -2,19 +2,26 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1><b>{{ $title }}</b> Posts</h1><hr>
+    <div class="d-flex justify-content-between">
+        <h1 class="ms-3"><b>{{ $title }}</b> Posts</h1>
+        <form action="/blog" class="input-group my-2 me-3 w-25">
+            <input type="text" class="form-control" placeholder="Enter keywords.." name="search" value="{{ request('search') }}">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+    </div>
+    <hr>
 
     @if ($posts->isEmpty())
         <h3 class="text-center mt-5">
             @switch($type)
                 @case("Category")
-                    There are no post yet of this category..
+                    There are no posts available of this category..
                     @break
                 @case("User")
-                    There are no post yet from this user..
+                    There are no posts available from this user..
                     @break
                 @default
-                    There are no post yet..
+                    There are no posts found..
                     @break
             @endswitch
         </h3>

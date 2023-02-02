@@ -26,7 +26,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/blog', [PostController::class, 'showAll']);
+Route::get('/blog', [PostController::class, 'showPosts']);
 
 Route::get('/about', function () {
     return view('about', [

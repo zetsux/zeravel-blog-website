@@ -7,11 +7,10 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function showAll() {
+    public function showPosts() {
         return view('blog', [
             "title" => "All",
-            // "posts" => Post::all()
-            "posts" => Post::latest()->get(),
+            "posts" => Post::latest()->filter(request(['search']))->get(),
             'type' => "All"
         ]);
     }
