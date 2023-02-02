@@ -2,12 +2,12 @@
 
 // Right Click -> Import All Classes (from PHP Namespace Resolver extension)
 
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\LoginController;
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +44,5 @@ Route::get('/categories', [CategoryController::class, 'showCategories']);
 Route::get('/users', [UserController::class, 'showUsers']);
 
 Route::get('/login', [LoginController::class, 'index']);
+
+Route::get('/register', [RegisterController::class, 'index']);
