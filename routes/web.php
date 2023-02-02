@@ -39,7 +39,7 @@ Route::get('/about', function () {
 
 Route::get('/blog/{post:slug}', [PostController::class, 'showOne']);
 
-Route::get('categories', [CategoryController::class, 'showCategories']);
+Route::get('/categories', [CategoryController::class, 'showCategories']);
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'showPosts']);
 

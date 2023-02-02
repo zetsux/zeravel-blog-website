@@ -17,9 +17,10 @@ class UserController extends Controller
     }
 
     public function showUsers() {
-        return view('users', [
+        return view('attribute', [
             'title' => 'Users',
-            'users' => User::latest()->get()
+            'attributes' => User::latest()->get(),
+            'type' => 'users'
         ]);
     }
 }

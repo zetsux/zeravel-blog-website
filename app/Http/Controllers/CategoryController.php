@@ -17,9 +17,10 @@ class CategoryController extends Controller
     }
 
     public function showCategories() {
-        return view('categories', [
-            'title' => 'Post Categories',
-            'categories' => Category::latest()->get()
+        return view('attribute', [
+            'title' => 'Categories',
+            'attributes' => Category::latest()->get(),
+            'type' => 'categories'
         ]);
     }
 }
