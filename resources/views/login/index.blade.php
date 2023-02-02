@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="row justify-content-center mt-5">
-    <div class="col-md-4">
+    <div class="col-lg-4">
         <main class="form-signin w-100 m-auto">
             <form>
                 <img class="img-thumbnail shadow rounded-circle mx-auto d-block" src="https://static.vecteezy.com/system/resources/thumbnails/000/602/787/small/83038926.jpg" 
