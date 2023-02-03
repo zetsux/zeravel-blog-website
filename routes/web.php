@@ -44,12 +44,11 @@ Route::get('/categories', [CategoryController::class, 'showCategories']);
 
 Route::get('/users', [UserController::class, 'showUsers']);
 
-Route::get('/login', [LoginController::class, 'index']);
-
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'auth']);
+Route::post('/logout', [LoginController::class, 'out']);
 
-Route::get('/register', [RegisterController::class, 'index']);
-
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
