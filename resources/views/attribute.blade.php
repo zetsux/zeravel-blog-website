@@ -3,7 +3,7 @@
 @section('container')
     <h1 class="ms-3">{{ $title }}</h1><hr>
 
-    @if ($attributes->isEmpty()) <h2>There are no registered {{ $type }} yet..
+    @if ($attributes->isEmpty()) <h2>There are no registered {{ $type }} yet..</h2>
     @endif
         
     <div class="container-fluid">

@@ -5,33 +5,53 @@
         <h1 class="h2">New Post Creation</h1>
     </div>
 
-    <div class="col-lg-6">
-        <form action="/dashboard/posts" method="post">
+    <div class="col-lg-9">
+        <form action="/dashboard/posts" method="post" class="mb-5">
             @csrf
 
             <div class="mb-3">
               <label for="title" class="form-label">Title</label>
-              <input type="text" class="form-control" id="title" required autofocus>
+              <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{ old('title') }}" autofocus required>
+
+              @error('title')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+              @enderror
             </div>
 
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" id="slug" readonly disabled>
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="slug" value="{{ old('slug') }}" readonly required>
+
+                @error('slug')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
-                <select class="form-select" name="category" id="category" required>
+                <select class="form-select" name="category_id" id="category" required>
                     @foreach($categories as $c)
-                        <option value="{{ $c->id }}">{{ $c->name }}</option>
+                        <option value="{{ $c->id }}" {{ old('category_id') == $c->id ? 'selected' : '' }}>
+                            {{ $c->name }}
+                        </option>
                     @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
-                <input id="content" type="hidden" name="content">
+                <input id="content" type="hidden" name="content" value="{{ old('content') }}">
                 <trix-editor input="content"></trix-editor>
+
+                @error('content')
+                    <div class="text-danger">
+                        <small>{{ $message }}</small>
+                    </div>
+                @enderror
             </div>
 
 
