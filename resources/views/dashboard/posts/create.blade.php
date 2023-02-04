@@ -43,6 +43,12 @@
         const title = document.querySelector('#title');
         const slug = document.querySelector('#slug');
 
+        title.addEventListener("keyup", function() {
+            let preslug = title.value;
+            preslug = preslug.replace(/([^\w ]|_)/g, '').replace(/ /g,"-");
+            slug.value = preslug.toLowerCase();
+        });
+
         title.addEventListener('change', function() {
             fetch('/dashboard/posts/convertTo-Slug?title=' + title.value)
                 .then(response => response.json())
