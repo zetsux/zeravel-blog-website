@@ -2,10 +2,10 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">{{ auth()->user()->name }}'s Posts</h1>
+        <h1 class="h2">Posts Created by You</h1>
     </div>
 
-    <div class="table-responsive col-lg-10">
+    <div class="table-responsive col-lg-12">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -23,7 +23,7 @@
                     <td>{{ $p->title }}</td>
                     <td>{{ $p->category->name }}</td>
                     <td>
-                        <a href="/dashboard/posts/{{ $p->id }}" class="badge bg-primary"><span data-feather="eye"></span></a>
+                        <a href="/dashboard/posts/{{ $p->slug }}" class="badge bg-primary"><span data-feather="eye"></span></a>
                         <a href="#" class="badge bg-warning"><span data-feather="edit-3"></span></a>
                         <a href="#" class="badge bg-danger"><span data-feather="trash-2"></span></a>
                     </td>
