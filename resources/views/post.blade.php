@@ -11,9 +11,7 @@
                 <img src="https://source.unsplash.com/1200x300?{{ $post->category->name }}" alt="Post Image" class="img-fluid">
 
                 <article class="my-4">
-                    @if (str_contains($post->content, '</p>')) {!! $post->content !!}
-                    @else {{ $post->content }}<br>
-                    @endif
+                    {!! $post->content !!}
                 </article>
 
                 <a href="/blog" class="text-decoration-none text-light btn btn-primary">⬅️ Back</a>
