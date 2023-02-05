@@ -70,7 +70,10 @@ class AdminCategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $this->authorize('admin');
+        return view('dashboard.categories.edit', [
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -82,7 +85,13 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => "required|max:30|unique:categories",
+            'slug' => ($request->slug !== $category->slug ? "required|unique:categories" : "required")
+        ]);
+
+        Category::where('id', $category->id)->update($validatedData);
+        return redirect('/dashboard/categories')->with('success', "You've successfully edited a category named '" . $category->name . "'!");
     }
 
     /**
