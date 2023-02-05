@@ -131,7 +131,10 @@ class DashboardPostController extends Controller
     public function destroy(Post $post)
     {
         $postTitle = $post->title;
+
+        if($post->image) Storage::delete($post->image);
         Post::destroy($post->id);
+        
         return redirect('/dashboard/posts')->with('success', "You've successfully deleted a post titled '" . $postTitle . "'!");
     }
 
