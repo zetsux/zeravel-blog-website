@@ -20,8 +20,13 @@
 
                 <h2 class="mb-2">{{ $post->title }}</h2>
 
-                <img src="https://source.unsplash.com/1200x300?{{ $post->category->name }}" alt="Post Image" class="img-fluid">
-
+                @if ($post->image) 
+                    <div style="max-height: 300px; overflow: auto">
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image" class="img-fluid">
+                    </div>
+                @else <img src="https://source.unsplash.com/1200x300?{{ $post->category->name }}" alt="Post Image" class="img-fluid">
+                @endif
+                
                 <article class="my-4">
                     {!! $post->content !!}
                 </article>

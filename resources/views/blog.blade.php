@@ -41,7 +41,14 @@
                         <div class="position-absolute p-3">
                             <a href="/blog?category={{ $posts[0]->category->slug }}" class="text-decoration-none text-light btn btn-dark opacity-75">{{ $posts[0]->category->name }}</a>
                         </div>
-                        <img src="https://source.unsplash.com/1200x300?{{ $posts[0]->category->name }}" class="card-img-top" alt="Post Image">
+
+                        @if ($posts[0]->image) 
+                            <div style="max-height: 300px; overflow: auto">
+                                <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="Post Image" class="img-fluid">
+                            </div>
+                        @else <img src="https://source.unsplash.com/1200x300?{{ $posts[0]->category->name }}" alt="Post Image" class="img-fluid">
+                        @endif
+
                         <div class="card-body text-center">
                         <h3 class="card-title"><a href="/blog/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
                         <small class="text-muted">
@@ -66,7 +73,12 @@
                         <div class="position-absolute p-3">
                             <a href="/blog?category={{ $p->category->slug }}" class="text-decoration-none text-light btn btn-dark opacity-75">{{ $p->category->name }}</a>
                         </div>
-                        <img src="https://source.unsplash.com/500x300?{{ $p->category->name }}" class="card-img-top" alt="Post Image">
+
+                        @if ($p->image) 
+                            <img src="{{ asset('storage/' . $p->image) }}" alt="Post Image" class="img-fluid">
+                        @else <img src="https://source.unsplash.com/1200x300?{{ $p->category->name }}" alt="Post Image" class="img-fluid">
+                        @endif
+
                         <div class="card-body">
                             <h3 class="card-title">
                                 <a href="/blog/{{ $p->slug }}" class="text-decoration-none">{{ $p->title }}</a>
