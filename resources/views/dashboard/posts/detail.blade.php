@@ -7,7 +7,7 @@
                 <div class="d-flex justify-content-between mb-4">
                     <a href="/dashboard/posts" class="text-decoration-none text-light btn btn-secondary"><span data-feather="arrow-left-circle" style="margin-bottom:3px"></span> Back to Posts</a>
                     <div>
-                        <a href="#" class="text-decoration-none text-light btn btn-warning"><span data-feather="edit-3" style="margin-bottom:3px"></span> Edit</a>
+                        <a href="/dashboard/posts/{{ $post->slug }}/edit" class="text-decoration-none text-light btn btn-warning"><span data-feather="edit-3" style="margin-bottom:3px"></span> Edit</a>
 
                         <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
                             @method('delete')

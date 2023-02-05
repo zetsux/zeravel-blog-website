@@ -17,17 +17,16 @@
     @if ($posts->isEmpty()) <h3 class="text-center my-5">You don't have any post... Why don't you try posting something?</h3>
     @else
       <div class="table-responsive col-lg-11">
-        <table class="table table-striped table-sm">
-          <thead>
+        <table class="table table-striped table-bordered border-light table-sm align-middle">
+          <thead class="table-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Title</th>
               <th scope="col">Category</th>
-              <th scope="col">Action</th>
+              <th scope="col" style="width: 10.7%">Action</th>
             </tr>
           </thead>
-          <tbody>
-
+          <tbody class="table-group-divider table-light">
             @foreach ($posts as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
@@ -35,7 +34,7 @@
                     <td>{{ $p->category->name }}</td>
                     <td>
                         <a href="/dashboard/posts/{{ $p->slug }}" class="badge bg-primary"><span data-feather="eye"></span></a>
-                        <a href="#" class="badge bg-warning"><span data-feather="edit-3"></span></a>
+                        <a href="/dashboard/posts/{{ $p->slug }}/edit" class="badge bg-warning"><span data-feather="edit-3"></span></a>
 
                         <form action="/dashboard/posts/{{ $p->slug }}" method="post" class="d-inline">
                           @method('delete')
