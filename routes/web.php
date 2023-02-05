@@ -59,4 +59,5 @@ Route::get('/dashboard', function() {
 Route::get('/dashboard/posts/convertTo-Slug', [DashboardPostController::class, 'getSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
+Route::get('/dashboard/categories/convertTo-Slug', [AdminCategoryController::class, 'getSlug'])->middleware('is_admin');
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('is_admin');
