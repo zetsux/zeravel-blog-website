@@ -75,8 +75,10 @@
                         </div>
 
                         @if ($p->image) 
-                            <img src="{{ asset('storage/' . $p->image) }}" alt="Post Image" class="img-fluid">
-                        @else <img src="https://source.unsplash.com/1200x300?{{ $p->category->name }}" alt="Post Image" class="img-fluid">
+                            <div style="max-height: 250px; overflow: hidden">
+                                <img src="{{ asset('storage/' . $p->image) }}" alt="Post Image" class="img-fluid">
+                            </div>
+                        @else <img src="https://source.unsplash.com/500x300?{{ $p->category->name }}" alt="Post Image" class="img-fluid">
                         @endif
 
                         <div class="card-body">
