@@ -46,7 +46,12 @@
             <div class="mb-3">
                 <label for="image" class="form-label">Post Image</label>
 
-                <img class="img-preview img-fluid mb-3 mt-1" style="max-height: 300px; overflow: auto">
+                <input type="hidden" name="oldImg" value="{{ $post->image }}">
+                
+                @if ($post->image) <img src="{{ asset('storage/' . $post->image) }}" class="img-preview img-fluid mb-3 mt-1 d-block" style="max-height: 300px; overflow: auto">
+                @else <img class="img-preview img-fluid mb-3 mt-1" style="max-height: 300px; overflow: auto">
+                @endif
+
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImg()">
 
                 @error('image')

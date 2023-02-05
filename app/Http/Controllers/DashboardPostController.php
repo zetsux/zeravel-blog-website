@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardPostController extends Controller
 {
@@ -102,11 +103,17 @@ class DashboardPostController extends Controller
         $rules = [
             'title' => "required|max:255",
             'category_id' => "required",
+            'image' => "image|file|max:2048",
             'slug' => ($request->slug !== $post->slug ? "required|unique:posts" : "required"),
             'content' => "required"
         ];
 
         $validatedData = $request->validate($rules);
+
+        if($request->file('image')) {
+            if($request->oldImg) Storage::delete($request->oldImg);
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->content), 150);
