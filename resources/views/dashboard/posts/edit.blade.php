@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-lg-9">
-        <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="mb-5">
+        <form action="/dashboard/posts/{{ $post->slug }}" method="post" enctype="multipart/form-data" class="mb-5">
             @method('put')
             @csrf
 
@@ -44,6 +44,19 @@
             </div>
 
             <div class="mb-3">
+                <label for="image" class="form-label">Post Image</label>
+
+                <img class="img-preview img-fluid mb-3 mt-1" style="max-height: 300px; overflow: auto">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImg()">
+
+                @error('image')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
                 <input id="content" type="hidden" name="content" value="{{ old('content',  $post->content) }}">
                 <trix-editor input="content"></trix-editor>
@@ -60,24 +73,5 @@
         </form>
     </div>
 
-    <script>
-        const title = document.querySelector('#title');
-        const slug = document.querySelector('#slug');
-
-        title.addEventListener("keyup", function() {
-            let preslug = title.value;
-            preslug = preslug.replace(/([^\w ]|_)/g, '').replace(/ /g,"-");
-            slug.value = preslug.toLowerCase();
-        });
-
-        title.addEventListener('change', function() {
-            fetch('/dashboard/posts/convertTo-Slug?title=' + title.value)
-                .then(response => response.json())
-                .then(data => slug.value = data.slug);
-        });
-
-        document.addEventListener('trix-file-accept', function(e) {
-            e.preventDefault();
-        })
-    </script>
+    @include('dashboard.layouts.script')
 @endsection
