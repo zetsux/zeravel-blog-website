@@ -53,7 +53,7 @@ class DashboardPostController extends Controller
         $validatedData['excerpt'] = Str::limit(strip_tags($request->content), 150);
 
         Post::create($validatedData);
-        return redirect('/dashboard/posts')->with('posted', "You've successfully added a new post!");
+        return redirect('/dashboard/posts')->with('success', "You've successfully added a post titled '" . $validatedData['title'] . "'!");
     }
 
     /**
@@ -100,7 +100,9 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $postTitle = $post->title;
+        Post::destroy($post->id);
+        return redirect('/dashboard/posts')->with('success', "You've successfully deleted a post titled '" . $postTitle . "'!");
     }
 
     public function getSlug(Request $request)
