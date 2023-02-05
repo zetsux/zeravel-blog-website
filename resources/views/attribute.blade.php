@@ -28,7 +28,7 @@
 
                 @case('category')
                     @foreach ($attributes as $a)
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2 mb-4">
                             <div class="card text-bg-dark">
                                 <img src="https://source.unsplash.com/500x300?{{ $a->name }}" class="card-img" alt="Category Image">
                                 <a href="/blog?{{ $type }}={{ $a->slug }}">
