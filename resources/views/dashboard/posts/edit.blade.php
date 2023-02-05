@@ -78,5 +78,5 @@
         </form>
     </div>
 
-    @include('dashboard.layouts.script')
+    @include('dashboard.layouts.postScript')
 @endsection
