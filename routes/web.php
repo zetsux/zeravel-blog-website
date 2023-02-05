@@ -2,6 +2,7 @@
 
 // Right Click -> Import All Classes (from PHP Namespace Resolver extension)
 
+use App\Http\Controllers\AdminCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -57,3 +58,5 @@ Route::get('/dashboard', function() {
 
 Route::get('/dashboard/posts/convertTo-Slug', [DashboardPostController::class, 'getSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('is_admin');
