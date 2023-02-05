@@ -93,7 +93,10 @@ class AdminCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $categoryName = $category->name;
+        category::destroy($category->id);
+        
+        return redirect('/dashboard/categories')->with('success', "You've successfully deleted a category named '" . $categoryName . "'!");
     }
 
     public function getSlug(Request $request)

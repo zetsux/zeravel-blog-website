@@ -31,7 +31,6 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $c->name }}</td>
                     <td>
-                        <a href="/dashboard/categories/{{ $c->slug }}" class="badge bg-primary"><span data-feather="eye"></span></a>
                         <a href="/dashboard/categories/{{ $c->slug }}/edit" class="badge bg-warning"><span data-feather="edit-3"></span></a>
 
                         <form action="/dashboard/categories/{{ $c->slug }}" method="post" class="d-inline">
